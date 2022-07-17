@@ -18,11 +18,11 @@ export default function Topbar(props) {
         >
           <Grid item>
             <Link to='/'>
-              <Button color="inherit">Preços da Market</Button>
+              <Button color="inherit">Market Price</Button>
             </Link>
-            <Link to='/'>
-              <Button color="inherit">Calculadora de Itens</Button>
-            </Link>
+            {/* <Link to='/market_profit'>
+              <Button color="inherit">Support Us</Button>
+            </Link> */}
           </Grid>
         </Grid>
       </AppBar>

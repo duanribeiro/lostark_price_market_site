@@ -14,6 +14,12 @@ const Routes = () => {
         layout={BasicLayout}
         component={PriceMarketView}
       />
+      {/* <PublicRoute
+        exact
+        path="/support"
+        layout={BasicLayout}
+        component={SupportView}
+      /> */}
     </Switch>
   ) 
 } 
