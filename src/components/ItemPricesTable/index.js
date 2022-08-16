@@ -52,43 +52,48 @@ const columns = [
 ];
 
 const ExpandedComponent = ({ data }) => <>
- <TableContainer component={Paper}>
-      <Table aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell><b>Basic Effect</b></TableCell>
-            <TableCell><b>Bonus Effect</b></TableCell>
-            <TableCell><b>Engraving Effect</b></TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
+  <TableContainer component={Paper}>
+    <Table aria-label="simple table">
+      <TableHead>
         <TableRow>
-            <TableCell>Strength: {data.basic_effect.Strength}</TableCell>
-            <TableCell>{Object.keys(data.bonus_effect)[0]} +{Object.values(data.bonus_effect)[0]}</TableCell>
-            <TableCell>{Object.keys(data.engraving_effect)[0]} +{Object.values(data.engraving_effect)[0]}</TableCell>
+          <TableCell><b>Basic Effect</b></TableCell>
+          <TableCell><b>Bonus Effect</b></TableCell>
+          <TableCell><b>Engraving Effect</b></TableCell>
         </TableRow>
-        <TableRow>
-            <TableCell>Dexterity: {data.basic_effect.Dexterity}</TableCell>
-            <TableCell>{Object.keys(data.bonus_effect)[1]} +{Object.values(data.bonus_effect)[1]}</TableCell>
-            <TableCell>{Object.keys(data.engraving_effect)[1]} +{Object.values(data.engraving_effect)[1]}</TableCell>
-        </TableRow>
-        <TableRow>
-            <TableCell>Intelligence: {data.basic_effect.Intelligence}</TableCell>
-            <TableCell></TableCell>
-            <TableCell>{Object.keys(data.engraving_effect)[2]} +{Object.values(data.engraving_effect)[2]}</TableCell>
-        </TableRow>
-        <TableRow>
-            <TableCell>Vitality: {data.basic_effect.Vitality}</TableCell>
-            <TableCell></TableCell>
-            <TableCell></TableCell>
-        </TableRow>
-        </TableBody>
-      </Table>
-    </TableContainer>
+      </TableHead>
+      <TableBody>
+      <TableRow>
+          <TableCell>Strength: {data.basic_effect.Strength}</TableCell>
+          <TableCell>{Object.keys(data.bonus_effect)[0]} +{Object.values(data.bonus_effect)[0]}</TableCell>
+          <TableCell>{Object.keys(data.engraving_effect)[0]} +{Object.values(data.engraving_effect)[0]}</TableCell>
+      </TableRow>
+      <TableRow>
+          <TableCell>Dexterity: {data.basic_effect.Dexterity}</TableCell>
+          <TableCell>{Object.keys(data.bonus_effect)[1]} +{Object.values(data.bonus_effect)[1]}</TableCell>
+          <TableCell>{Object.keys(data.engraving_effect)[1]} +{Object.values(data.engraving_effect)[1]}</TableCell>
+      </TableRow>
+      <TableRow>
+          <TableCell>Intelligence: {data.basic_effect.Intelligence}</TableCell>
+          <TableCell></TableCell>
+          <TableCell>{Object.keys(data.engraving_effect)[2]} +{Object.values(data.engraving_effect)[2]}</TableCell>
+      </TableRow>
+      <TableRow>
+          <TableCell>Vitality: {data.basic_effect.Vitality}</TableCell>
+          <TableCell></TableCell>
+          <TableCell></TableCell>
+      </TableRow>
+      </TableBody>
+    </Table>
+  </TableContainer>
 </>;
 
-export default function ItemPricesTable(props) {
-    var { allItemData } = props;
+export default function ItemPricesTable({
+  allItemData, totalRows, handlePerRowsChange, handlePageChange, isLoading
+}) {
+
+  const paginationComponentOptions = {
+    selectAllRowsItem: true,
+  };
 
     return (
       <>
@@ -98,6 +103,12 @@ export default function ItemPricesTable(props) {
           expandableRows
           expandableRowsComponent={ExpandedComponent}
           pagination
+          paginationServer
+          paginationTotalRows={totalRows}
+          onChangeRowsPerPage={handlePerRowsChange}
+          onChangePage={handlePageChange}
+          paginationComponentOptions={paginationComponentOptions}
+          progressPending={isLoading}
         />
       </>
     );

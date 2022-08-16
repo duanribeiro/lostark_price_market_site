@@ -20,8 +20,8 @@ export default function Topbar(props) {
             <Link to='/'>
               <Button color="inherit">Market Price</Button>
             </Link>
-            {/* <Link to='/market_profit'>
-              <Button color="inherit">Support Us</Button>
+            {/* <Link to='/engraving_calculator'>
+              <Button color="inherit">Engraving Calculator</Button>
             </Link> */}
           </Grid>
         </Grid>

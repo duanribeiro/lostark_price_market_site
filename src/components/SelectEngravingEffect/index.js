@@ -37,7 +37,7 @@ export default function SelectEngravingEffect(props) {
     'Lightning Fury',
     'Cursed Doll',
     'Contender',
-    'Master of Ambush',
+    'Ambush Master',
     'Magick Stream',
     'Barricade',
     'Raid Captain',
@@ -50,7 +50,7 @@ export default function SelectEngravingEffect(props) {
     'All-out Attack',
     'Expert',
     'Emergency Rescue',
-    'Precision Dagger',
+    'Precise Dagger',
     // NEGATIVE
     'Atk. Power Reduction',
     'Atk. Speed Reduction',

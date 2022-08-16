@@ -1,8 +1,11 @@
 import React from 'react' 
-import { Switch } from 'react-router-dom' 
 import { BasicLayout} from '../layouts' 
 import PublicRoute from './PublicRoute' 
-import { PriceMarketView } from '../views' 
+import { PriceMarketView, UnsubscribeView } from '../views' 
+import {
+  Switch
+} from "react-router-dom";
+
 
 
 const Routes = () => {
@@ -14,12 +17,12 @@ const Routes = () => {
         layout={BasicLayout}
         component={PriceMarketView}
       />
-      {/* <PublicRoute
+      <PublicRoute
         exact
-        path="/support"
+        path="/delete_email_alert"
         layout={BasicLayout}
-        component={SupportView}
-      /> */}
+        component={UnsubscribeView}
+      />
     </Switch>
   ) 
 } 
